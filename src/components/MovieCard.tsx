@@ -22,11 +22,9 @@ const MovieCard = ({ movie, ...props }: Props) => {
           titleStyle={styles.noMinHeight}
           subtitleStyle={styles.noMinHeight}
           title={movie.name}
+          subtitle={movie.year}
           left={props => <Avatar.Image {...props} source={{ uri: movie.image }} />}
         />
-        {/* <Card.Content>
-          <Text variant="bodyMedium">{movie.description}</Text>
-        </Card.Content> */}
         <Card.Actions>
           {'like' in props && <AntDesign name="like2" size={24} color="green" />}
           {'dislike' in props && <AntDesign name="dislike2" size={24} color="red" />}
