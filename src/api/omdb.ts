@@ -9,7 +9,7 @@ const omdbAPI = axios.create({
   },
 })
 
-export const getMoviesAPI = async (search = MOVIE_KEYWORDS[0]) => {
+export const getMoviesAPI = async (search: keyof typeof MOVIE_KEYWORDS) => {
   try {
     const response = await omdbAPI.get<OMDBDiscoverResponse>('/', {
       params: {
