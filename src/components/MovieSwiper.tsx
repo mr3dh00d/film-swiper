@@ -58,6 +58,7 @@ const MovieSwiper = ({
           ),
         },
       }}
+      onSwiping={x => setSwipeX(x)}
       onSwipedLeft={cardIndex => {
         addDislike(cards[cardIndex])
       }}
