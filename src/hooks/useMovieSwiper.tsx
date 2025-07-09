@@ -1,4 +1,6 @@
+import { getMoviesService } from '@/service/movies'
 import { MovieSwiperData } from '@/types/movies'
+import { useQuery } from '@tanstack/react-query'
 import { useRef } from 'react'
 import Swiper from 'react-native-deck-swiper'
 
@@ -11,9 +13,16 @@ export const useMovieSwiper = () => {
     swiperRef.current?.swipeRight()
   }
 
+  const { data: cards, isFetched: cardsAreFetched } = useQuery({
+    queryKey: ['movies', 1],
+    queryFn: () => getMoviesService(),
+  })
+
   return {
     swiperRef,
     swipeLeft,
     swipeRight,
+    cards: cards || [],
+    cardsAreFetched,
   }
 }

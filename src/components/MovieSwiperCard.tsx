@@ -19,15 +19,15 @@ const MovieSwiperCard = ({
       <Card.Cover style={styles.cardCover} source={{ uri: data?.image }} />
       <LinearGradient colors={['transparent', 'rgba(0,0,0,1)']} style={styles.cardCoverLinearGradient}>
         <Text variant="titleLarge" style={{ color: 'white' }}>
-          {data ? `${data.name} #${data.id}` : ''}
+          {data ? data.name : ''}
+        </Text>
+        <Text variant="titleMedium" style={{ color: 'white' }}>
+          {data ? data.year : ''}
         </Text>
       </LinearGradient>
     </View>
-    <Card.Content style={styles.cardContent}>
-      <Text variant="bodyMedium">{data?.description || 'No description available.'}</Text>
-    </Card.Content>
     {data && (
-      <Card.Actions style={{ justifyContent: 'space-between' }}>
+      <Card.Actions style={styles.cardActions}>
         <Button onPress={swipeLeft}>
           <AntDesign name="dislike2" size={18} />
         </Button>
@@ -46,10 +46,10 @@ const styles = StyleSheet.create({
   cardContainerCover: {
     position: 'relative',
     width: '100%',
-    height: 550,
+    height: 625,
   },
   cardCover: {
-    height: 550,
+    height: 625,
     borderBottomLeftRadius: 0,
     borderBottomRightRadius: 0,
   },
@@ -60,9 +60,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingTop: 50,
     paddingBottom: 20,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
   },
-  cardContent: {
-    padding: 10,
+  cardActions: {
+    justifyContent: 'space-between',
   },
 })
 

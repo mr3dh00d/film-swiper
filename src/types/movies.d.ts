@@ -1,7 +1,6 @@
 export type MovieSwiperData = {
-  id: number
+  id: string
   name: string
+  year: string
   image: string
-  created: string
-  description: string
 }
